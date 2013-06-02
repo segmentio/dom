@@ -193,6 +193,28 @@ describe('.last()', function(){
   })
 })
 
+describe('.next()', function(){
+  it('should return the next element in the List', function(){
+    var list = dom('<ul><li>foo</li><li>bar</li></ul>').find('li');
+    assert(list.get(1) == list.first().next().get(0));
+  })
+})
+
+describe('.previous()', function(){
+  it('should return the previous element in the List', function(){
+    var list = dom('<ul><li>foo</li><li>bar</li></ul>').find('li');
+    assert(list.get(0) == list.last().previous().get(0));
+  })
+})
+
+describe('.prev()', function(){
+  it('should be an alias for .previous()', function(){
+    var list = dom([]);
+    assert(list.previous == list.prev);
+  })
+})
+
+
 describe('.addClass(name)', function(){
   it('should add the given class name', function(){
     var list = dom('<em>Hello</em>');
