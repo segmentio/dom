@@ -319,6 +319,32 @@ List.prototype.last = function(){
 };
 
 /**
+ * Return a `List` containing the next element.
+ *
+ * @return {List}
+ * @api public
+ */
+
+List.prototype.next = function(){
+  var el = this.els[0];
+  while(el = el.nextSibling && el.nodeType !== 1) {} // only element nodes
+  return new List(el, this.selector);
+};
+
+/**
+ * Return a `List` containing the previous element.
+ *
+ * @return {List}
+ * @api public
+ */
+
+List.prototype.prev = function(){
+  var el = this.els[0];
+  while(el = el.previousSibling && el.nodeType !== 1) {} // only element nodes
+  return new List(el, this.selector);
+};
+
+/**
  * Return an `Element` at `i`.
  *
  * @param {Number} i
