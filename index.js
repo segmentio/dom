@@ -134,6 +134,26 @@ List.prototype.remove = function(){
 };
 
 /**
+ * Replace elements in the DOM.
+ *
+ * @param {String|Element|List} val
+ * @return {List} new list
+ * @api public
+ */
+
+List.prototype.replace = function(val){
+  val = dom(val);
+  var el = val.els[0];
+  if (!el) return;
+  for (var i = 0; i < this.els.length; i++) {
+    var old = this.els[i];
+    var parent = old.parentNode;
+    if (parent) parent.replaceChild(old, val.els[0]);
+  }
+  return val;
+};
+
+/**
  * Set attribute `name` to `val`, or get attr `name`.
  *
  * @param {String} name

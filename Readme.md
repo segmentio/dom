@@ -88,6 +88,16 @@ dom('ul')
   .addClass('user');
 ```
 
+### .replace(list)
+
+  Replace with the `list`:
+
+```js
+dom('.old')
+  .replace('<div>')
+  .addClass('new');
+```
+
 ### .on(event, fn, [capture])
 
   Bind `event` handler function:
