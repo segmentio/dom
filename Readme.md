@@ -336,6 +336,24 @@ dom('ul li').first().remove();
 ```js
 dom('ul li').last().remove();
 ```
+```
+
+### .next()
+
+  Return a `List` containing the next element:
+
+```js
+dom('li').next();
+```
+```
+
+### .prev()
+
+  Return a `List` containing the previous element:
+
+```js
+dom('li').prev();
+```
 
 ### .length()
 
