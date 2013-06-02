@@ -148,7 +148,7 @@ List.prototype.replace = function(val){
   for (var i = 0; i < this.els.length; i++) {
     var old = this.els[i];
     var parent = old.parentNode;
-    if (parent) parent.replaceChild(old, val.els[0]);
+    if (parent) parent.replaceChild(val.els[0], old);
   }
   return val;
 };
