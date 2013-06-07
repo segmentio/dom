@@ -674,6 +674,29 @@ List.prototype.find = function(selector){
 };
 
 /**
+ * Find children not matching the given `selector`.
+ *
+ * @param {String} selector
+ * @return {List}
+ * @api public
+ */
+
+List.prototype.not = function(selector){
+  var picks = [];
+  var rejects = dom(selector, this).els;
+  var el, reject;
+  for (var i = 0; i < this.els.length; ++i) {
+    el = this.els[i];
+    reject = false;
+    for (var j = 0; j < rejects.length; ++j) {
+      if (rejects[j] === el) reject = true;
+    }
+    if (!reject) picks.push(el);
+  }
+  return new List(picks);
+};
+
+/**
  * Empty the dom list
  *
  * @return self

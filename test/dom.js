@@ -1,5 +1,5 @@
 
-var assert = require('assert')
+var assert = require('component-assert')
   , dom = require('dom')
 
 describe('dom()', function(){
@@ -259,6 +259,14 @@ describe('.find(selector)', function(){
     var list = dom('<ul><li>foo</li><li>bar</li></ul>');
     list = list.find('li');
     assert(2 == list.length());
+  })
+})
+
+describe('.not(selector)', function(){
+  it('should return descendents not matching the selector', function(){
+    var list = dom('<div><div>foo</div><span>bar</span></div>');
+    list = list.not('span');
+    assert(1 == list.length());
   })
 })
 
