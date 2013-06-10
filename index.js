@@ -347,8 +347,8 @@ List.prototype.last = function(){
 
 List.prototype.next = function(){
   var el = this.els[0];
-  while(el = el.nextSibling && el.nodeType !== 1) {} // only element nodes
-  return new List(el, this.selector);
+  while((el = el.nextSibling) && el.nodeType !== 1) {} // only element nodes
+  return new List([el], this.selector);
 };
 
 /**
@@ -358,10 +358,12 @@ List.prototype.next = function(){
  * @api public
  */
 
+
+List.prototype.previous =
 List.prototype.prev = function(){
   var el = this.els[0];
-  while(el = el.previousSibling && el.nodeType !== 1) {} // only element nodes
-  return new List(el, this.selector);
+  while((el = el.previousSibling) && el.nodeType !== 1) {} // only element nodes
+  return new List([el], this.selector);
 };
 
 /**
